@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Workshops | Learn Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2A4B8C;
+            --secondary: #FF6B35;
+            --accent: #00A8E8;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a355e);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 20%;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 1rem auto 0;
+        }
+
+        /* Workshop Cards */
+        .workshops-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .workshop-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .enroll-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .enroll-button:hover {
+            background-color: #0088c2;
+        }
+
+        /* Special Digital Marketing Card */
+        .featured-card {
+            grid-column: span 1;
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .form-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .form-section p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .form-link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #ff8c5a);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .form-link-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .form-link-button i {
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--primary);
+                padding: 2rem;
+                transition: left 0.5s;
+                z-index: 100;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .workshops-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h1>Digital<span>Pro</span></h1>
+                </div>
+                
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#workshops">Workshops</a></li>
+                        <li><a href="#register">Register</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Master Digital Marketing with Expert-Led Workshops</h2>
+            <p>Join our comprehensive workshops to learn the latest digital marketing strategies, tools, and techniques from industry experts. Transform your career or business with hands-on training.</p>
+            <a href="#workshops" class="cta-button">Explore Workshops</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Workshops Section -->
+        <section id="workshops">
+            <div class="section-title">
+                <h2>Our Digital Marketing Workshops</h2>
+                <p>Choose from our specialized workshops designed to elevate your digital marketing skills</p>
+            </div>
+            
+            <div class="workshops-container">
+                <!-- Workshop Card 1 -->
+                <div class="workshop-card">
+                    <div class="card-header">
+                        <i class="fas fa-search"></i>
+                        <h3>SEO Mastery</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Learn how to optimize websites for search engines and drive organic traffic.</p>
+                        <ul>
+                            <li>Keyword research & analysis</li>
+                            <li>On-page & technical SEO</li>
+                            <li>Link building strategies</li>
+                            <li>SEO analytics & reporting</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="enroll-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Workshop Card 2 -->
+                <div class="workshop-card">
+                    <div class="card-header">
+                        <i class="fas fa-ad"></i>
+                        <h3>Social Media Advertising</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Master paid advertising on Facebook, Instagram, LinkedIn, and other platforms.</p>
+                        <ul>
+                            <li>Audience targeting strategies</li>
+                            <li>Ad creative best practices</li>
+                            <li>Campaign optimization</li>
+                            <li>ROI measurement</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="enroll-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Workshop Card 3: Featured Digital Marketing Workshop -->
+                <div class="workshop-card featured-card">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="card-header">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Complete Digital Marketing</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Comprehensive training covering all aspects of digital marketing from strategy to execution.</p>
+                        <ul>
+                            <li>Content marketing strategy</li>
+                            <li>Email marketing automation</li>
+                            <li>Conversion rate optimization</li>
+                            <li>Analytics & data-driven decisions</li>
+                            <li>Marketing funnel development</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <!-- UPDATED LINK HERE -->
+                        <a href="https://forms.gle/2PgFnW4N5fdAc9JE7" target="_blank" class="enroll-button">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <!-- Workshop Card 4 -->
+                <div class="workshop-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-pie"></i>
+                        <h3>Analytics & Data Insights</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Learn to measure, analyze, and optimize marketing performance with data.</p>
+                        <ul>
+                            <li>Google Analytics mastery</li>
+                            <li>Data visualization techniques</li>
+                            <li>Customer journey analysis</li>
+                            <li>Performance reporting</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="enroll-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="register">
+            <div class="form-section">
+                <h3>Register for Digital Marketing Workshop</h3>
+                <p>Ready to transform your digital marketing skills? Click the button below to access our registration form and secure your spot in our upcoming workshops. Limited seats available!</p>
+                <!-- UPDATED LINK HERE -->
+                <a href="https://forms.gle/2PgFnW4N5fdAc9JE7" target="_blank" class="form-link-button">
+                    Access Registration Form <i class="fas fa-external-link-alt"></i>
+                </a>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+                    You will be redirected to Google Forms to complete your registration.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DigitalPro</h3>
+                    <p>Providing industry-leading digital marketing training and workshops since 2015. We've helped over 5,000 professionals advance their careers.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#workshops">Workshops</a></li>
+                        <li><a href="#register">Register</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Marketing St, Digital City</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@digitalpro.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DigitalPro Workshops. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenu.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Card hover effect enhancement
+        const cards = document.querySelectorAll('.workshop-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
